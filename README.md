@@ -50,3 +50,7 @@ M-x all-the-icons-install
 M-x nerd-icons-install-fonts
 M-x restart-emacs
 ```
+
+### Refcard
+
+https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
