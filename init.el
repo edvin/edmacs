@@ -121,6 +121,16 @@
 (use-package tree-sitter-langs)
 (tree-sitter-require 'go)
 
+;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+			  ("C-c C-e" . markdown-do)))
+
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
 ;; Enable vertico
 (use-package vertico
   :init
