@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/edvin/edmacs
+git clone https://github.com/edvin/edmacs ~/.emacs.d
 ```
 
 ## Prerequisites
