@@ -173,24 +173,3 @@
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
-
-;; Mark whole word instead of from cursor
-(defun mark-whole-word (&optional arg allow-extend)
-  "Like `mark-word', but selects whole words and skips over whitespace."
-  (interactive "P\np")
-  (let ((num  (prefix-numeric-value arg)))
-    (unless (eq last-command this-command)
-      (if (natnump num)
-          (skip-syntax-forward "\\s-")
-        (skip-syntax-backward "\\s-")))
-    (unless (or (eq last-command this-command)
-                (if (natnump num)
-                    (looking-at "\\b")
-                  (looking-back "\\b")))
-      (if (natnump num)
-          (left-word)
-        (right-word)))
-    (mark-word arg allow-extend)))
-
-;; Ensure M-@ is bound to mark-whole-word instead of just mark-word
-(global-set-key [remap mark-word] 'mark-whole-word)
