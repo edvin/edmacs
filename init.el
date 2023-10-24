@@ -44,7 +44,6 @@
 
 ;; Theme
 (use-package doom-themes
-  :ensure t
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -57,7 +56,6 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1))
 
 ;; Project management
@@ -117,7 +115,6 @@
 
 ;; Syntax checking
 (use-package flycheck
-  :ensure t
   :init (global-flycheck-mode))
 
 ;; Syntax hl
@@ -127,7 +124,6 @@
 
 ;; Markdown
 (use-package markdown-mode
-  :ensure t
   :mode ("README\\.md'" . gfm-mode)
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
