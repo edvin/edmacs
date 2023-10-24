@@ -133,8 +133,9 @@
 
 ;; Enable vertico
 (use-package vertico
-  :init
-  (vertico-mode))
+  :bind (:map minibuffer-local-map
+			  ("M-h" . backward-kill-word))
+  :init (vertico-mode))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
