@@ -133,8 +133,6 @@
 
 ;; Enable vertico
 (use-package vertico
-  :bind (:map minibuffer-local-map
-			  ("M-h" . backward-kill-word))
   :init (vertico-mode))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
@@ -171,7 +169,7 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 
-;; Add more information to minibuffers controlled by Vertico
+;; Add more information to menus controlled by Vertico
 (use-package marginalia
   :after vertico
   :custom
