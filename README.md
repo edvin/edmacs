@@ -29,7 +29,7 @@ yay libtree
 
 Fonts: https://www.jetbrains.com/lp/mono/#how-to-install'
 
-## Compile
+## Compile Enacs from source
 
 Download: https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
 
@@ -37,6 +37,7 @@ Download: https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Em
 
 ```bash
 ./configure --with-pgtk --with-native-compilation
+make -j 8
 sudo make install
 ```
 
@@ -46,7 +47,7 @@ sudo make install
 /usr/local/bin/emacs
 
 # icons:
-M-x all-the-icons-install
+M-x all-the-icons-install-fonts
 M-x nerd-icons-install-fonts
 M-x restart-emacs
 ```
