@@ -18,6 +18,7 @@ git clone https://github.com/edvin/edmacs ~/.emacs.d
 go install github.com/rogpeppe/godef@master
 go install github.com/go-delve/delve/cmd/dlv@master
 go install golang.org/x/tools/gopls@latest
+go install github.com/lighttiger2505/sqls@latest
 
 # Ubuntu
 sudo apt-get install libtree-sitter-dev
