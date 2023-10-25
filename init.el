@@ -7,7 +7,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (global-display-line-numbers-mode)
-(set-frame-font "JetBrains Mono 14" nil t)
+(set-frame-font "JetBrains Mono 12" nil t)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 
