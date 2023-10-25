@@ -182,6 +182,7 @@
   (marginalia-mode))
 
 ;; HTTP REST Client
-(use-package restclient)
+(use-package restclient
+  :mode (("\\\.http\\'" . restclient-mode)))
 (use-package company-restclient)
 (add-to-list 'company-backends 'company-restclient)
