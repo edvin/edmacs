@@ -180,3 +180,8 @@
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :init
   (marginalia-mode))
+
+;; HTTP REST Client
+(use-package restclient)
+(use-package company-restclient)
+(add-to-list 'company-backends 'company-restclient)
