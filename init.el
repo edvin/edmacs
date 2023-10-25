@@ -83,15 +83,30 @@
 (use-package go-mode)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
+(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
+(use-package kotlin-mode)
+
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook (
 	 (go-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration))
+	 (kotlin-mode . lsp-deferred)
+     (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui :commands lsp-ui-mode)
+
+;; Java LSP Server must use recent version of Java, but default projects to Java 8
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-21-jdk")
+(setq lsp-java-java-path "/usr/lib/jvm/java-21-jdk/bin/java")
+(setq lsp-java-configuration-runtimes '[(:name "JDK-8"
+											   :path "/usr/lib/jvm/java-8-jdk"
+											   :default t)
+										(:name "JDK-21"
+											   :path "/usr/lib/jvm/java-21-jdk")])
+;; Consider reducing debug output from LSP
+;; (setq lsp-inhibit-message t)
 
 ;; SQL
 (add-hook 'sql-mode-hook 'lsp)
@@ -99,6 +114,8 @@
 
 ;; Debugging
 (use-package dap-mode
+  :after lsp-mode
+  :config (dap-auto-configure-mode)
   :init (require 'dap-dlv-go))
 
 ;; Snippet engine used by lsp for parameter completion
