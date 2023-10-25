@@ -29,7 +29,7 @@ yay libtree
 
 Fonts: https://www.jetbrains.com/lp/mono/#how-to-install'
 
-## Compile Enacs from source
+## Compile Emacs from source
 
 Download: https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
 
