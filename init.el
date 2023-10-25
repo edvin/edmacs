@@ -11,6 +11,9 @@
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 
+;; Prevent dired from opening new buffers when visiting
+(setq dired-kill-when-opening-new-dired-buffer t)
+
 ;; Electric pair mode everywere but in minibuffer
 (electric-pair-mode)
 (defun inhibit-electric-pair-mode (char)
