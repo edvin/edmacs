@@ -114,10 +114,21 @@
 ;; Consider reducing debug output from LSP
 ;; (setq lsp-inhibit-message t)
 
-;; SQL
+;; SQL 
 (add-hook 'sql-mode-hook 'lsp)
 (setq lsp-sqls-workspace-config-path nil)
 
+;; SQL Source Code Blocks in Org mode using sql-mode
+(use-package ob-sql-mode)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sql . t)))
+
+;; Do not prompt for executing Org mode SQL
+(setq org-confirm-babel-evaluate
+      (lambda (lang body)
+        (not (string= lang "sql-mode"))))
 ;; Debugging
 (use-package dap-mode
   :after lsp-mode
