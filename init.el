@@ -40,9 +40,14 @@
   (straight-use-package-by-default t))
 
 ;; Icons
-(use-package all-the-icons)
-(use-package all-the-icons-dired)
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(use-package nerd-icons
+  :custom
+  (nerd-icons-font-family "JetBrainsMono Nerd Font"))
+
+(use-package nerd-icons-dired)
+(use-package nerd-icons-completion)
+(use-package nerd-icons-ibuffer)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
 ;; Theme
 (use-package doom-themes
