@@ -12,6 +12,10 @@
 ;; Prevent dired from opening new buffers when visiting
 (setq dired-kill-when-opening-new-dired-buffer t)
 
+;; Disable menubar if not running with GUI
+(if (not (window-system))
+	(menu-bar-mode -1))
+
 ;; Electric pair mode everywere but in minibuffer
 (electric-pair-mode)
 (defun inhibit-electric-pair-mode (char)
