@@ -9,7 +9,6 @@
 (set-frame-font "JetBrains Mono 12" nil t)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
-
 ;; Prevent dired from opening new buffers when visiting
 (setq dired-kill-when-opening-new-dired-buffer t)
 
@@ -95,22 +94,24 @@
 	 (go-mode . lsp-deferred)
 	 (kotlin-mode . lsp-deferred)
      (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (setq lsp-file-watch-threshold 3000)
+  :config
+  (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui :commands lsp-ui-mode)
-(define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
 (setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
-(setq lsp-java-import-maven-enabled t)
+;; (setq lsp-java-import-maven-enabled t)
 (setq lsp-java-import-maven-offline-enabled t)
 (setq lsp-java-maven-download-sources nil)
 (setq lsp-java-java-path "/usr/lib/jvm/java-17-jdk/bin/java")
 (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
 											   :path "/usr/lib/jvm/java-8-jdk"
-											   :default t)
-										(:name "JavaSE-17"
-											   :path "/usr/lib/jvm/java-17-jdk")])
+											   :default t)])
 ;; Consider reducing debug output from LSP
 ;; (setq lsp-inhibit-message t)
 
