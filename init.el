@@ -1,4 +1,3 @@
-
 ;; Configure window, fonts, tab width etc
 (setq package-enable-at-startup nil)
 (setq inhibit-startup-screen t)
@@ -87,8 +86,6 @@
 (use-package kotlin-mode)
 
 (use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
   :hook (
 	 (go-mode . lsp-deferred)
 	 (kotlin-mode . lsp-deferred)
@@ -96,15 +93,19 @@
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui :commands lsp-ui-mode)
+(define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
-(setenv "JAVA_HOME" "/usr/lib/jvm/java-21-jdk")
-(setq lsp-java-java-path "/usr/lib/jvm/java-21-jdk/bin/java")
-(setq lsp-java-configuration-runtimes '[(:name "JDK-8"
+(setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
+(setq lsp-java-import-maven-enabled t)
+(setq lsp-java-import-maven-offline-enabled t)
+(setq lsp-java-maven-download-sources nil)
+(setq lsp-java-java-path "/usr/lib/jvm/java-17-jdk/bin/java")
+(setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
 											   :path "/usr/lib/jvm/java-8-jdk"
 											   :default t)
-										(:name "JDK-21"
-											   :path "/usr/lib/jvm/java-21-jdk")])
+										(:name "JavaSE-17"
+											   :path "/usr/lib/jvm/java-17-jdk")])
 ;; Consider reducing debug output from LSP
 ;; (setq lsp-inhibit-message t)
 
@@ -133,6 +134,9 @@
   (setq company-minimum-prefix-length 1))
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Hydra is used by many extensions to provide intermittent menus
+(use-package hydra)
 
 ;; Syntax checking
 (use-package flycheck
@@ -203,3 +207,6 @@
   :mode (("\\\.http\\'" . restclient-mode)))
 (use-package company-restclient)
 (add-to-list 'company-backends 'company-restclient)
+
+(provide 'init)
+;;; init.el ends here
