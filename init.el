@@ -11,6 +11,10 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Zoom on C-mousebuttons
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
+
 ;; LSP Optimizations
 (setq read-process-output-max 64000)
 (setq gc-cons-threshold 100000000)
