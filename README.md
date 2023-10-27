@@ -42,17 +42,6 @@ make -j 8
 sudo make install
 ```
 
-### First startup
-
-```bash
-/usr/local/bin/emacs
-
-# icons:
-M-x all-the-icons-install-fonts
-M-x nerd-icons-install-fonts
-M-x restart-emacs
-```
-
 ### Refcard
 
 https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
