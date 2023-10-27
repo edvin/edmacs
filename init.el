@@ -9,6 +9,7 @@
 (set-frame-font "JetBrains Mono 12" nil t)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; LSP Optimizations
 (setq read-process-output-max 64000)
