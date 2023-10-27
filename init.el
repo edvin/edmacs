@@ -60,6 +60,11 @@
 (use-package nerd-icons-ibuffer)
 (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
 
+;; Window management
+(use-package ace-window
+  :init
+  (global-set-key (kbd "M-o") 'ace-window))
+
 ;; Theme
 (use-package doom-themes
   :config
