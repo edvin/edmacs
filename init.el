@@ -100,6 +100,11 @@
 ;; Magit
 (use-package magit)
 
+;; YAML
+(use-package yaml-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
 ;; LSP
 (add-to-list 'load-path (expand-file-name "lib/lsp-mode" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lib/lsp-mode/clients" user-emacs-directory))
