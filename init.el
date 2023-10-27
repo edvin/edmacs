@@ -11,7 +11,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; Zoom on C-mousebuttons
+;; Zoom on C-mousewheel
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
@@ -178,7 +178,9 @@
 
 ;; Syntax checking
 (use-package flycheck
-  :init (global-flycheck-mode))
+  :init
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (global-flycheck-mode))
 
 ;; Syntax hl
 (use-package tree-sitter)
