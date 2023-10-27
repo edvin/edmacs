@@ -9,6 +9,13 @@
 (set-frame-font "JetBrains Mono 12" nil t)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
+
+;; LSP Optimizations
+(setq read-process-output-max 64000)
+(setq gc-cons-threshold 100000000)
+;; LSP Must be recompiled after asking it to use plists instead of hash-table for deserializing objects
+(setenv "LSP_USE_PLISTS" "1")
+
 ;; Prevent dired from opening new buffers when visiting
 (setq dired-kill-when-opening-new-dired-buffer t)
 
