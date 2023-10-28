@@ -1,12 +1,21 @@
 ;; Configure window, fonts, tab width etc
 (setq package-enable-at-startup nil)
 (setq inhibit-startup-screen t)
-(when window-system (set-frame-size (selected-frame) 120 45))
+
+;; Ensure that frames are correctly sized for new frames/emacsclient as well
+(defun es/init-new-frame (frame)
+  (set-frame-size frame 120 45)
+  (set-frame-font "JetBrains Mono 12" nil t))
+
+;; Setup frame for initially loaded frame
+(es/init-new-frame (selected-frame))
+
+(add-hook 'after-make-frame-functions 'es/init-new-frame)
+
 (setq initial-scratch-message nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (global-display-line-numbers-mode)
-(set-frame-font "JetBrains Mono 12" nil t)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -104,6 +113,11 @@
 (use-package yaml-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
+;; Treemacs
+(use-package treemacs
+  :init
+  (global-set-key (kbd "M-0") 'treemacs-select-window))
 
 ;; LSP
 (add-to-list 'load-path (expand-file-name "lib/lsp-mode" user-emacs-directory))
