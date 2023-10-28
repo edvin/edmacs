@@ -96,6 +96,9 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
+  :config
+  (set-face-background 'doom-modeline-bar (face-background 'mode-line))
+  (setq doom-modeline-bar-width 1)
   :init (doom-modeline-mode 1))
 
 ;; Project management
