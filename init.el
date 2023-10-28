@@ -2,7 +2,7 @@
 (setq package-enable-at-startup nil)
 (setq inhibit-startup-screen t)
 
-;; Ensure that frames are correctly sized for new frames/emacsclient as well
+;; Configure new frames
 (defun es/init-new-frame (frame)
   (set-frame-size frame 120 45)
   (set-frame-font "JetBrains Mono 12" nil t))
@@ -10,6 +10,7 @@
 ;; Setup frame for initially loaded frame
 (es/init-new-frame (selected-frame))
 
+;; Ensure that frames are correctly sized for new frames/emacsclient as well
 (add-hook 'after-make-frame-functions 'es/init-new-frame)
 
 (setq initial-scratch-message nil)
@@ -266,6 +267,11 @@
   :mode (("\\\.http\\'" . restclient-mode)))
 (use-package company-restclient)
 (add-to-list 'company-backends 'company-restclient)
+
+;; Load user settings if exists
+(let ((es/custom-init-file (concat user-emacs-directory "/user.el")))
+  (when (file-exists-p es/custom-init-file)
+	(load-file es/custom-init-file)))
 
 (provide 'init)
 ;;; init.el ends here
