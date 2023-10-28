@@ -131,6 +131,12 @@
 (add-to-list 'load-path (expand-file-name "lib/lsp-mode/clients" user-emacs-directory))
 
 (use-package go-mode)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook
+                      #'gofmt-before-save
+                      nil t)))
+
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (use-package go-tag)
 
