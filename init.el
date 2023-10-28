@@ -9,6 +9,12 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Disable default echo-area-message and ensure last message is blank
+(put 'inhibit-startup-echo-area-message 'saved-value t)
+(setq inhibit-startup-echo-area-message (user-login-name))
+(defun display-startup-echo-area-message ()
+  (message ""))
+
 ;; Configure new frames
 (defun es/init-new-frame (frame)
   (set-frame-size frame 120 45)
