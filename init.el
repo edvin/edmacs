@@ -1,18 +1,6 @@
-;; Configure window, fonts, tab width etc
+;; Sane defaults
 (setq package-enable-at-startup nil)
 (setq inhibit-startup-screen t)
-
-;; Configure new frames
-(defun es/init-new-frame (frame)
-  (set-frame-size frame 120 45)
-  (set-frame-font "JetBrains Mono 12" nil t))
-
-;; Setup frame for initially loaded frame
-(es/init-new-frame (selected-frame))
-
-;; Ensure that frames are correctly sized for new frames/emacsclient as well
-(add-hook 'after-make-frame-functions 'es/init-new-frame)
-
 (setq initial-scratch-message nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -20,6 +8,19 @@
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+;; Configure new frames
+(defun es/init-new-frame (frame)
+  (set-frame-size frame 120 45)
+  (set-frame-font "JetBrains Mono 12" nil t)
+  (if (not (window-system))
+	(menu-bar-mode -1)))
+
+;; Setup frame for initially loaded frame
+(es/init-new-frame (selected-frame))
+
+;; Ensure that frames are correctly sized for new frames/emacsclient as well
+(add-hook 'after-make-frame-functions 'es/init-new-frame)
 
 ;; Zoom on C-mousewheel
 (global-set-key [C-mouse-4] 'text-scale-increase)
@@ -33,10 +34,6 @@
 
 ;; Prevent dired from opening new buffers when visiting
 (setq dired-kill-when-opening-new-dired-buffer t)
-
-;; Disable menubar if not running with GUI
-(if (not (window-system))
-	(menu-bar-mode -1))
 
 ;; Electric pair mode everywere but in minibuffer
 (electric-pair-mode)
@@ -171,13 +168,14 @@
 (setq org-confirm-babel-evaluate
       (lambda (lang body)
         (not (string= lang "sql-mode"))))
+
 ;; Debugging
 (use-package dap-mode
   :after lsp-mode
   :config (dap-auto-configure-mode)
   :init (require 'dap-dlv-go))
 
-;; Snippet engine used by lsp for parameter completion
+;; Snippet engine used by LSP for parameter completion
 (use-package yasnippet
   :config
   (yas-global-mode))
