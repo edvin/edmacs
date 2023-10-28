@@ -132,6 +132,7 @@
 
 (use-package go-mode)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+(use-package go-tag)
 
 (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
 (use-package kotlin-mode)
