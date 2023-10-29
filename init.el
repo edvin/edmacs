@@ -145,6 +145,9 @@
 
 (use-package lsp-mode
   :hook (
+	 (svelte-mode . lsp-deferred)
+	 (typescript-mode . lsp-deferred)
+	 (javascript-mode . lsp-deferred)
 	 (go-mode . lsp-deferred)
 	 (kotlin-mode . lsp-deferred)
      (lsp-mode . lsp-enable-which-key-integration))
@@ -165,7 +168,9 @@
 ;; TailwindCSS
 (use-package lsp-tailwindcss
   :init
-  (setq lsp-tailwindcss-add-on-mode t))
+  (setq lsp-tailwindcss-add-on-mode t)
+  :config
+  (setq lsp-tailwindcss-major-modes '(svelte-mode html-mode web-mode css-mode typescript-mode)))
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
 (setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
