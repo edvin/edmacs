@@ -156,6 +156,16 @@
 
 (use-package lsp-ui :commands lsp-ui-mode)
 
+;;Sveltee
+(use-package svelte-mode)
+
+;; TypeScript
+(use-package typescript-mode)
+
+;; TailwindCSS
+(use-package lsp-tailwindcss
+  :init
+  (setq lsp-tailwindcss-add-on-mode t))
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
 (setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
