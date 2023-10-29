@@ -15,9 +15,17 @@
 (defun display-startup-echo-area-message ()
   (message ""))
 
-;; Configure new frames
+;; Default frame size, override in early-init.el
+(defcustom edmacs/frame-width 150
+  "Initial frame width, override in early-init.el"
+  :type 'integer)
+
+(defcustom edmacs/frame-height 60
+  "Initial frame height, override in early-init.el"
+  :type 'integer)
+
 (defun es/init-new-frame (frame)
-  (set-frame-size frame 120 45)
+  (set-frame-size frame edmacs/frame-width edmacs/frame-height)
   (set-frame-font "JetBrains Mono 12" nil t)
   (if (not (window-system))
 	(menu-bar-mode -1)))
