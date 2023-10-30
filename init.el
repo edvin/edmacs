@@ -124,6 +124,9 @@
   (setq which-key-idle-delay 0.1)
   (which-key-mode))
 
+;; Ripgrep, also supports projectile C-l p s r
+(use-package rg)
+
 ;; Magit
 (use-package magit)
 
