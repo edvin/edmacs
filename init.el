@@ -124,8 +124,12 @@
   (setq which-key-idle-delay 0.1)
   (which-key-mode))
 
-;; Ripgrep, also supports projectile C-l p s r
-(use-package rg)
+;; Ripgrep, also supports projectile C-c s p
+(use-package rg
+  :config
+  (global-set-key (kbd "C-c s") #'rg-menu)
+  (with-eval-after-load 'rg)
+)
 
 ;; Magit
 (use-package magit)
