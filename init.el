@@ -30,7 +30,8 @@
 (defun edmacs/init-new-frame (frame)
   (set-frame-size frame edmacs/frame-width edmacs/frame-height)
   (set-frame-font edmacs/frame-font nil t)
-  (menu-bar-mode -1))
+  (menu-bar-mode -1)
+  (tool-bar-mode -1))
 
 ;; Setup frame for initially loaded frame
 (edmacs/init-new-frame (selected-frame))
