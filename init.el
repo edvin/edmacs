@@ -24,17 +24,20 @@
   "Initial frame height, override in early-init.el"
   :type 'integer)
 
-(defun es/init-new-frame (frame)
+(defcustom edmacs/frame-font "JetBrains Mono 12"
+  "Default Frame Font, override in early-init.el")
+
+(defun edmacs/init-new-frame (frame)
   (set-frame-size frame edmacs/frame-width edmacs/frame-height)
-  (set-frame-font "JetBrains Mono 12" nil t)
+  (set-frame-font edmacs/frame-font nil t)
   (if (not (window-system))
 	(menu-bar-mode -1)))
 
 ;; Setup frame for initially loaded frame
-(es/init-new-frame (selected-frame))
+(edmacs/init-new-frame (selected-frame))
 
 ;; Ensure that frames are correctly sized for new frames/emacsclient as well
-(add-hook 'after-make-frame-functions 'es/init-new-frame)
+(add-hook 'after-make-frame-functions 'edmacs/init-new-frame)
 
 ;; Zoom on C-mousewheel
 (global-set-key [C-mouse-4] 'text-scale-increase)
@@ -306,9 +309,9 @@
 (add-to-list 'company-backends 'company-restclient)
 
 ;; Load user settings if exists
-(let ((es/custom-init-file (concat user-emacs-directory "/user.el")))
-  (when (file-exists-p es/custom-init-file)
-	(load-file es/custom-init-file)))
+(let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
+  (when (file-exists-p edmacs/custom-init-file)
+	(load-file edmacs/custom-init-file)))
 
 (provide 'init)
 ;;; init.el ends here
