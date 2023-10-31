@@ -79,6 +79,7 @@
   (straight-use-package-by-default t))
 
 ;; Icons
+(use-package all-the-icons)
 (use-package nerd-icons
   :custom
   (nerd-icons-font-family "JetBrainsMono Nerd Font"))
