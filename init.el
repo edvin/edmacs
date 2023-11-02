@@ -9,6 +9,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Only zap upto char, no including
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
 ;; Disable default echo-area-message and ensure last message is blank
 (put 'inhibit-startup-echo-area-message 'saved-value t)
 (setq inhibit-startup-echo-area-message (user-login-name))
@@ -28,8 +31,10 @@
   "Default Frame Font, override in early-init.el")
 
 (defun edmacs/init-new-frame (frame)
-  (set-frame-size frame edmacs/frame-width edmacs/frame-height)
-  (set-frame-font edmacs/frame-font nil t)
+  (if (display-graphic-p)
+	  (progn
+		(set-frame-size frame edmacs/frame-width edmacs/frame-height)
+		(set-frame-font edmacs/frame-font nil t)))
   (menu-bar-mode -1)
   (tool-bar-mode -1))
 
@@ -205,7 +210,8 @@
 (setq lsp-sqls-workspace-config-path nil)
 
 ;; SQL Source Code Blocks in Org mode using sql-mode
-(use-package ob-sql-mode)
+(use-package ob-sql-mode
+  :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -270,7 +276,10 @@
   :init
   (savehist-mode))
 
-;; Further vertico config
+;; Persist point in saved files
+(save-place-mode 1)
+
+;; further vertico configuration
 (use-package emacs
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
