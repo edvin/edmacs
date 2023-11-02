@@ -9,6 +9,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Only zap upto char, no including
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
 ;; Disable default echo-area-message and ensure last message is blank
 (put 'inhibit-startup-echo-area-message 'saved-value t)
 (setq inhibit-startup-echo-area-message (user-login-name))
@@ -276,7 +279,7 @@
 ;; Persist point in saved files
 (save-place-mode 1)
 
-;; Further vertico config
+;; further vertico configuration
 (use-package emacs
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
