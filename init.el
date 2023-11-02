@@ -207,7 +207,8 @@
 (setq lsp-sqls-workspace-config-path nil)
 
 ;; SQL Source Code Blocks in Org mode using sql-mode
-(use-package ob-sql-mode)
+(use-package ob-sql-mode
+  :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -271,6 +272,9 @@
 (use-package savehist
   :init
   (savehist-mode))
+
+;; Persist point in saved files
+(save-place-mode 1)
 
 ;; Further vertico config
 (use-package emacs
