@@ -28,8 +28,10 @@
   "Default Frame Font, override in early-init.el")
 
 (defun edmacs/init-new-frame (frame)
-  (set-frame-size frame edmacs/frame-width edmacs/frame-height)
-  (set-frame-font edmacs/frame-font nil t)
+  (if (display-graphic-p)
+	  (progn
+		(set-frame-size frame edmacs/frame-width edmacs/frame-height)
+		(set-frame-font edmacs/frame-font nil t)))
   (menu-bar-mode -1)
   (tool-bar-mode -1))
 
