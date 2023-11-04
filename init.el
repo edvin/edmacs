@@ -324,7 +324,12 @@
 (use-package company-restclient)
 (add-to-list 'company-backends 'company-restclient)
 
-;; Load user settings if exists
+;; Surround code with brackets and quotes
+(straight-use-package
+ '(surround :type git :host github :repo "edvin/surround.el"))
+(surround-activate-keymap)
+
+;; Load user "settings" if exists
 (let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
   (when (file-exists-p edmacs/custom-init-file)
 	(load-file edmacs/custom-init-file)))
