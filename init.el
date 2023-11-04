@@ -325,8 +325,10 @@
 (add-to-list 'company-backends 'company-restclient)
 
 ;; Surround code with brackets and quotes
-(straight-use-package
- '(surround :type git :host github :repo "edvin/surround.el"))
+;; (straight-use-package
+;;  '(surround :type git :host github :repo "edvin/surround.el")
+;;  :init (setq surround-shortcut "C-c C-s"))
+
 (surround-activate-keymap)
 
 ;; Load user "settings" if exists
