@@ -4,6 +4,7 @@
 (setq initial-scratch-message nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 (global-display-line-numbers-mode)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
@@ -329,4 +330,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(put 'narrow-to-region 'disabled nil)
