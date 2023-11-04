@@ -9,6 +9,7 @@
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(scroll-bar-mode -1)
 
 ;; Only zap upto char, no including
 (global-set-key (kbd "M-z") 'zap-up-to-char)
