@@ -60,10 +60,10 @@
 (setq dired-kill-when-opening-new-dired-buffer t)
 
 ;; Electric pair mode everywere but in minibuffer
-;; (electric-pair-mode)
-;; (defun inhibit-electric-pair-mode (char)
-;;   (minibufferp))
-;; (setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
+(electric-pair-mode)
+(defun inhibit-electric-pair-mode (char)
+  (minibufferp))
+(setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
 
 ;; Configure Straight package manager
 (defvar bootstrap-version)
@@ -329,7 +329,7 @@
 ;;  '(surround :type git :host github :repo "edvin/surround.el")
 ;;  :init (setq surround-shortcut "C-c C-s"))
 
-(surround-activate-keymap)
+;; (surround-activate-keymap)
 
 ;; Load user "settings" if exists
 (let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
