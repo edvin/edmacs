@@ -329,6 +329,9 @@
  '(surround :type git :host github :repo "edvin/surround.el"))
 (surround-mode 1)
 
+;; Transpose frame to help move frames around
+(use-package transpose-frame)
+
 ;; Load user "settings" if exists
 (let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
   (when (file-exists-p edmacs/custom-init-file)
