@@ -61,7 +61,6 @@
 
 ;; Electric pair mode, but not in minibuffer or for double quotes
 (defun inhibit-electric-pair-mode (c)
-  (message "Checking char %s" c)
   (if (or (minibufferp)
 		  (char-equal c ?\"))
 	  t (electric-pair-default-inhibit c)))
