@@ -109,8 +109,7 @@
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t
-		mode-modeline-height 35)
+        doom-themes-enable-italic t)
   (load-theme 'doom-palenight t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
@@ -118,7 +117,8 @@
 (use-package doom-modeline
   :config
   (set-face-background 'doom-modeline-bar (face-background 'mode-line))
-  (setq doom-modeline-bar-width 1)
+  (setq doom-modeline-bar-width 1
+		mode-modeline-height 35)
   :init (doom-modeline-mode 1))
 
 ;; Project management
