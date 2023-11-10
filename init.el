@@ -103,19 +103,16 @@
 ;; Window management
 (use-package ace-window
   :init
-  (global-set-key (kbd "M-o") 'ace-window))
+  (global-set-key (kbd "M-o") 'ace-window)) 
 
 ;; Theme
 (use-package doom-themes
   :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t
+		mode-modeline-height 35)
   (load-theme 'doom-palenight t)
-
-  ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-  ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
 (use-package doom-modeline
