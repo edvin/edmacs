@@ -60,13 +60,20 @@
 (setq dired-kill-when-opening-new-dired-buffer t)
 
 ;; Electric pair mode, but not in minibuffer or for double quotes
-(electric-pair-mode)
 (defun inhibit-electric-pair-mode (c)
+  (message "Checking char %s" c)
   (if (or (minibufferp)
 		  (char-equal c ?\"))
 	  t (electric-pair-default-inhibit c)))
 
 (setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
+
+;; Remove doublequotes from electric pair list
+(setq electric-pair-pairs '
+	  ((,(nth 0 electric-quote-chars) . ,(nth 1 electric-quote-chars))
+	   (,(nth 2 electric-quote-chars) . ,(nth 3 electric-quote-chars))))
+
+(electric-pair-mode)
 
 ;; Configure Straight package manager
 (defvar bootstrap-version)
