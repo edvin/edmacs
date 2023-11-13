@@ -59,11 +59,14 @@
 ;; Prevent dired from opening new buffers when visiting
 (setq dired-kill-when-opening-new-dired-buffer t)
 
-;; Electric pair mode, but not in minibuffer or for double quotes
+;; Electric pair mode unless in minibuffer or next to quotes or double quotes
+;; Use conservative inhibit when defaulting
 (defun inhibit-electric-pair-mode (c)
   (if (or (minibufferp)
-		  (char-equal c ?\"))
-	  t (electric-pair-default-inhibit c)))
+		 (eq (char-syntax (following-char)) ?')
+		 (eq (char-syntax (following-char)) ?\")
+		 (char-equal c ?\"))
+	  t (electric-pair-conservative-inhibit c)))
 
 (setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
 
