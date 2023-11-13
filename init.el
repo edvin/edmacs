@@ -188,7 +188,10 @@
 
 (use-package lsp-ui :commands lsp-ui-mode)
 
-;;Sveltee
+;; Prettier formatting - enable with (prettier-mode) when you need it
+(use-package prettier)
+
+;;Svelte
 (use-package svelte-mode)
 
 ;; TypeScript
