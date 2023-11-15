@@ -119,8 +119,7 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-palenight t)
-  (doom-themes-visual-bell-config)
-  (doom-themes-org-config))
+  (doom-themes-visual-bell-config))
 
 (use-package doom-modeline
   :config
