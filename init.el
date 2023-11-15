@@ -223,6 +223,10 @@
 (add-hook 'sql-mode-hook 'lsp)
 (setq lsp-sqls-workspace-config-path nil)
 
+;; Nicer bullets in org-mode
+(use-package org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;; SQL Source Code Blocks in Org mode using sql-mode
 (use-package ob-sql-mode
   :ensure t)
