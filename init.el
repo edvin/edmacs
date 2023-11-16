@@ -352,5 +352,8 @@
   (when (file-exists-p edmacs/custom-init-file)
 	(load-file edmacs/custom-init-file)))
 
+;; Notmuch
+(use-package notmuch)
+
 (provide 'init)
 ;;; init.el ends here
