@@ -353,7 +353,9 @@
 	(load-file edmacs/custom-init-file)))
 
 ;; Notmuch
-(use-package notmuch)
+(use-package notmuch
+  :init
+  (setq notmuch-show-logo nil))
 
 (provide 'init)
 ;;; init.el ends here
