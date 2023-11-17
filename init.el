@@ -5,7 +5,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
-(global-display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (setq-default tab-width 4)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
