@@ -357,5 +357,8 @@
   :init
   (setq notmuch-show-logo nil))
 
+;; Unfuck PHP mode
+(setq backward-delete-char-untabify-method nil)
+
 (provide 'init)
 ;;; init.el ends here
