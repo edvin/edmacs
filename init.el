@@ -357,8 +357,13 @@
   :init
   (setq notmuch-show-logo nil))
 
-;; Unfuck PHP mode
-(setq backward-delete-char-untabify-method nil)
+;; Smoother scrolling experience
+(setq scroll-margin 3
+      scroll-conservatively 101
+      scroll-up-aggressively 0.01
+      scroll-down-aggressively 0.01
+      scroll-preserve-screen-position t
+      auto-window-vscroll nil)
 
 (provide 'init)
 ;;; init.el ends here
