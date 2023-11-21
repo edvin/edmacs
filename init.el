@@ -347,11 +347,6 @@
 ;; Transpose frame to help move frames around
 (use-package transpose-frame)
 
-;; Load user "settings" if exists
-(let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
-  (when (file-exists-p edmacs/custom-init-file)
-	(load-file edmacs/custom-init-file)))
-
 ;; Notmuch
 (use-package notmuch
   :init
@@ -364,6 +359,11 @@
       scroll-down-aggressively 0.01
       scroll-preserve-screen-position t
       auto-window-vscroll nil)
+
+;; Load user "settings" if exists
+(let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
+  (when (file-exists-p edmacs/custom-init-file)
+	(load-file edmacs/custom-init-file)))
 
 (provide 'init)
 ;;; init.el ends here
