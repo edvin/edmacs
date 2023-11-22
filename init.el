@@ -360,6 +360,9 @@
       scroll-preserve-screen-position t
       auto-window-vscroll nil)
 
+;; Load env vars
+(use-package load-env-vars)
+
 ;; Load user "settings" if exists
 (let ((edmacs/custom-init-file (concat user-emacs-directory "/user.el")))
   (when (file-exists-p edmacs/custom-init-file)
