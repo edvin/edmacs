@@ -171,16 +171,16 @@
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 (use-package go-tag)
 
-(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
-(use-package kotlin-mode)
+;; (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
+;; (use-package kotlin-mode)
 
 (use-package lsp-mode
   :hook (
-	 (svelte-mode . lsp-deferred)
-	 (typescript-mode . lsp-deferred)
-	 (javascript-mode . lsp-deferred)
-	 (go-mode . lsp-deferred)
-	 (kotlin-mode . lsp-deferred)
+	 ;; (svelte-mode . lsp-deferred)
+	 ;; (typescript-mode . lsp-deferred)
+	 ;; (javascript-mode . lsp-deferred)
+	 ;; (go-mode . lsp-deferred)
+	 ;; (kotlin-mode . lsp-deferred)
      (lsp-mode . lsp-enable-which-key-integration))
   :init
   (setq lsp-file-watch-threshold 3000)
@@ -194,28 +194,28 @@
 ;;(use-package prettier)
 
 ;;Svelte
-(use-package svelte-mode)
+;; (use-package svelte-mode)
 
 ;; TypeScript
-(use-package typescript-mode)
+;; (use-package typescript-mode)
 
 ;; TailwindCSS
-(use-package lsp-tailwindcss
-  :init
-  (setq lsp-tailwindcss-add-on-mode t)
-  :config
-  (setq lsp-tailwindcss-major-modes '(svelte-mode html-mode web-mode css-mode typescript-mode)))
+;; (use-package lsp-tailwindcss
+;;   :init
+;;   (setq lsp-tailwindcss-add-on-mode t)
+;;   :config
+;;   (setq lsp-tailwindcss-major-modes '(svelte-mode html-mode web-mode css-mode typescript-mode)))
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
-(setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
-;; (setq lsp-java-import-maven-enabled t)
-(setq lsp-java-import-maven-offline-enabled t)
-(setq lsp-java-maven-download-sources nil)
-(setq lsp-java-java-path "/usr/lib/jvm/java-17-jdk/bin/java")
-(setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
-											   :path "/usr/lib/jvm/java-8-jdk"
-											   :default t)])
-;; Consider reducing debug output from LSP
+;; (setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
+;; ;; (setq lsp-java-import-maven-enabled t)
+;; (setq lsp-java-import-maven-offline-enabled t)
+;; (setq lsp-java-maven-download-sources nil)
+;; (setq lsp-java-java-path "/usr/lib/jvm/java-17-jdk/bin/java")
+;; (setq lsp-java-configuration-runtimes '[(:name "JavaSE-1.8"
+;; 											   :path "/usr/lib/jvm/java-8-jdk"
+;; 											   :default t)])
+;; ;; Consider reducing debug output from LSP
 ;; (setq lsp-inhibit-message t)
 
 ;; SQL 
@@ -276,11 +276,11 @@
 (tree-sitter-require 'go)
 
 ;; Markdown
-(use-package markdown-mode
-  :mode ("README\\.md'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown")
-  :bind (:map markdown-mode-map
-			  ("C-c C-e" . markdown-do)))
+;; (use-package markdown-mode
+;;   :mode ("README\\.md'" . gfm-mode)
+;;   :init (setq markdown-command "multimarkdown")
+;;   :bind (:map markdown-mode-map
+;; 			  ("C-c C-e" . markdown-do)))
 
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
