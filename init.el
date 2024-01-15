@@ -191,20 +191,20 @@
 (use-package lsp-ui :commands lsp-ui-mode)
 
 ;; Prettier formatting - enable with (prettier-mode) when you need it
-(use-package prettier)
+;; (use-package prettier)
 
 ;;Svelte
-(use-package svelte-mode)
+;; (use-package svelte-mode)
 
 ;; TypeScript
-(use-package typescript-mode)
+;; (use-package typescript-mode)
 
 ;; TailwindCSS
-(use-package lsp-tailwindcss
-  :init
-  (setq lsp-tailwindcss-add-on-mode t)
-  :config
-  (setq lsp-tailwindcss-major-modes '(svelte-mode html-mode web-mode css-mode typescript-mode)))
+;; (use-package lsp-tailwindcss
+;;   :init
+;;   (setq lsp-tailwindcss-add-on-mode t)
+;;   :config
+;;   (setq lsp-tailwindcss-major-modes '(svelte-mode html-mode web-mode css-mode typescript-mode)))
 
 ;; Java LSP Server must use recent version of Java, but default projects to Java 8
 ;; (setenv "JAVA_HOME" "/usr/lib/jvm/java-17-jdk/")
