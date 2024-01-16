@@ -190,6 +190,15 @@
 
 (use-package lsp-ui :commands lsp-ui-mode)
 
+;; Rust
+(use-package rust-mode)
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+(setq rust-format-on-save t)
+(add-hook 'rust-mode-hook
+          (lambda () (prettify-symbols-mode)))
+(add-hook 'rust-mode-hook #'lsp)
+
 ;; Prettier formatting - enable with (prettier-mode) when you need it
 ;; (use-package prettier)
 
