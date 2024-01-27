@@ -61,21 +61,21 @@
 
 ;; Electric pair mode unless in minibuffer or next to quotes or double quotes
 ;; Use conservative inhibit when defaulting
-(defun inhibit-electric-pair-mode (c)
-  (if (or (minibufferp)
-		 (eq (char-syntax (following-char)) ?')
-		 (eq (char-syntax (following-char)) ?\")
-		 (char-equal c ?\"))
-	  t (electric-pair-conservative-inhibit c)))
+;; (defun inhibit-electric-pair-mode (c)
+;;   (if (or (minibufferp)
+;; 		 (eq (char-syntax (following-char)) ?')
+;; 		 (eq (char-syntax (following-char)) ?\")
+;; 		 (char-equal c ?\"))
+;; 	  t (electric-pair-conservative-inhibit c)))
 
-(setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
+;; (setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode)
 
 ;; Remove doublequotes from electric pair list
-(setq electric-pair-pairs '
-	  ((,(nth 0 electric-quote-chars) . ,(nth 1 electric-quote-chars))
-	   (,(nth 2 electric-quote-chars) . ,(nth 3 electric-quote-chars))))
+;; (setq electric-pair-pairs '
+;; 	  ((,(nth 0 electric-quote-chars) . ,(nth 1 electric-quote-chars))
+;; 	   (,(nth 2 electric-quote-chars) . ,(nth 3 electric-quote-chars))))
 
-(electric-pair-mode)
+;(electric-pair-mode)
 
 ;; Configure Straight package manager
 (defvar bootstrap-version)
@@ -174,12 +174,15 @@
 ;; (use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
 ;; (use-package kotlin-mode)
 
+(use-package php-mode)
+
 (use-package lsp-mode
   :hook (
 	 (svelte-mode . lsp-deferred)
 	 (typescript-mode . lsp-deferred)
 	 (javascript-mode . lsp-deferred)
 	 (go-mode . lsp-deferred)
+	 (php-mode . lsp-deferred)
 	 ;; (kotlin-mode . lsp-deferred)
      (lsp-mode . lsp-enable-which-key-integration))
   :init
